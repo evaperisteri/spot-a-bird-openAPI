@@ -137,7 +137,7 @@
                     "username": "mairy"
                   }
                 },
-                "POST save a user": {
+                "POST save an admin": {
                   "value": {
                     "email": "ludia@email.com",
                     "firstname": "ludia",
