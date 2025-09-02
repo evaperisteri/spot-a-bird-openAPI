@@ -184,52 +184,40 @@
       }
     },
     "/api/bwlogs/save": {
-      "post": {
-        "summary": "POST new log",
-        "description": "POST new log",
-        "operationId": "postNewLog",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "birdName": {
-                    "type": "string",
-                    "example": "Pallas's Sandgrouse"
-                  },
-                  "quantity": {
-                    "type": "number",
-                    "example": 1
-                  },
-                  "regionName": {
-                    "type": "string",
-                    "example": "Central Greece"
-                  }
-                }
-              },
-              "examples": {
-                "POST new log": {
-                  "value": {
-                    "birdName": "Pallas's Sandgrouse",
-                    "quantity": 1,
-                    "regionName": "Central Greece"
-                  }
-                }
+  "post": {
+    "summary": "POST new log",
+    "description": "POST new log",
+    "operationId": "postNewLog",
+    "requestBody": {
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "birdName": { "type": "string", "example": "Pallas's Sandgrouse" },
+              "quantity": { "type": "number", "example": 1 },
+              "regionName": { "type": "string", "example": "Central Greece" }
+            }
+          },
+          "examples": {
+            "POST new log": {
+              "value": {
+                "birdName": "Pallas's Sandgrouse",
+                "quantity": 1,
+                "regionName": "Central Greece"
               }
             }
           }
-        },
-        "responses": {
-          "200": {
-            "description": ""
-          }
-        },
-        "security": [
-          {}
-        ]
+        }
       }
     },
+    "responses": { "200": { "description": "" } },
+    "security": [
+      { "jwtBearerAuth": [] }
+    ]
+  }
+},
+
     "/api/birds/search": {
       "get": {
         "summary": "get birds by search",
