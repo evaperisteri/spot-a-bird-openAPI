@@ -252,14 +252,39 @@
         ]
       }
     },
-    "/api/users/11": {
+  "/api/users/{id}": {
       "get": {
-        "summary": "user by id",
-        "description": "user by id",
-        "operationId": "userById",
+        "summary": "Get user by ID",
+        "description": "Retrieve a specific user by their ID",
+        "operationId": "getUserById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "User ID",
+            "schema": {
+              "type": "integer",
+              "example": 11
+            }
+          }
+        ],
         "responses": {
           "200": {
-            "description": ""
+            "description": "User found successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "User not found"
+          },
+          "401": {
+            "description": "Unauthorized - valid JWT token required"
           }
         },
         "security": [
@@ -455,18 +480,45 @@
         ]
       }
     },
-    "/api/birds/350": {
+    "/api/birds/{id}": {
       "get": {
-        "summary": "get bird by id",
-        "description": "get bird by id",
+        "summary": "Get bird by ID",
+        "description": "Retrieve a specific bird species by its ID",
         "operationId": "getBirdById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Bird ID",
+            "schema": {
+              "type": "integer",
+              "example": 350
+            }
+          }
+        ],
         "responses": {
           "200": {
-            "description": ""
+            "description": "Bird found successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Bird"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Bird not found"
+          },
+          "401": {
+            "description": "Unauthorized - valid JWT token required"
           }
         },
         "security": [
-          { "jwtBearerAuth": [] }
+          {
+            "jwtBearerAuth": []
+          }
         ]
       }
     },
@@ -852,7 +904,7 @@
         ]
       }
     },
-    "/api/users/27": {
+    "/api/users/1": {
       "put": {
         "summary": "update any user (admin)",
         "description": "update any user (admin)",
