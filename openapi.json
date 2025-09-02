@@ -846,7 +846,9 @@
           "200": {
             "description": ""
           }
-        }
+        },"security": [
+      { "jwtBearerAuth": [] }
+    ]
       }
     },
     "/api/users/27": {
