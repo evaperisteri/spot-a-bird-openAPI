@@ -661,33 +661,87 @@
         ]
       }
     },
-    "/api/regions/1": {
+    "/api/regions/{id}": {
       "get": {
-        "summary": "get regions by id",
-        "description": "get regions by id",
-        "operationId": "getRegionsById",
+        "summary": "Get region by ID",
+        "description": "Retrieve a specific region by its ID",
+        "operationId": "getRegionById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Region ID",
+            "schema": {
+              "type": "integer",
+              "example": 1
+            }
+          }
+        ],
         "responses": {
           "200": {
-            "description": ""
+            "description": "Region found successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Region"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - valid JWT token required"
+          },
+          "404": {
+            "description": "Region not found"
           }
         },
         "security": [
-          { "jwtBearerAuth": [] }
+          {
+            "jwtBearerAuth": []
+          }
         ]
       }
     },
-    "/api/families/20": {
+    "/api/families/{id}": {
       "get": {
-        "summary": "get family by id",
-        "description": "get family by id",
+        "summary": "Get family by ID",
+        "description": "Retrieve a specific bird family by its ID",
         "operationId": "getFamilyById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Family ID",
+            "schema": {
+              "type": "integer",
+              "example": 20
+            }
+          }
+        ],
         "responses": {
           "200": {
-            "description": ""
+            "description": "Family found successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Family"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - valid JWT token required"
+          },
+          "404": {
+            "description": "Family not found"
           }
         },
         "security": [
-          { "jwtBearerAuth": [] }
+          {
+            "jwtBearerAuth": []
+          }
         ]
       }
     },
