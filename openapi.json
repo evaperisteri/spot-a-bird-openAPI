@@ -588,39 +588,44 @@
         ]
       }
     },
-    "/api/bwlogs/5": {
+    "/api/bwlogs/{id}": {
       "get": {
         "summary": "get log by id",
         "description": "get log by id",
         "operationId": "getLogById",
-        "responses": {
-          "200": {
-            "description": ""
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer", "example": 5 }
           }
+        ],
+        "responses": {
+          "200": { "description": "" }
         }
       },
       "put": {
         "summary": "Update a log",
         "description": "Update a log",
         "operationId": "updateALog",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer", "example": 5 }
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
                 "properties": {
-                  "birdName": {
-                    "type": "string",
-                    "example": "Pin-tailed Sandgrouse"
-                  },
-                  "quantity": {
-                    "type": "number",
-                    "example": 1
-                  },
-                  "regionName": {
-                    "type": "string",
-                    "example": "Central Macedonia"
-                  }
+                  "birdName": { "type": "string", "example": "Pin-tailed Sandgrouse" },
+                  "quantity": { "type": "number", "example": 1 },
+                  "regionName": { "type": "string", "example": "Central Macedonia" }
                 }
               },
               "examples": {
@@ -636,9 +641,7 @@
           }
         },
         "responses": {
-          "200": {
-            "description": ""
-          }
+          "200": { "description": "" }
         },
         "security": [
           { "jwtBearerAuth": [] }
