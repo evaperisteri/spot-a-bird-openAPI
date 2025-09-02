@@ -1,0 +1,901 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Spot-A-Bird API",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {"url": "http://localhost:8080"}
+  ],
+  "paths":{
+    "/api/auth/login": {
+      "post": {
+        "summary": "POST user login",
+        "description": "POST user login",
+        "operationId": "postUserLogin",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "password": {
+                    "type": "string",
+                    "example": "12345"
+                  },
+                  "username": {
+                    "type": "string",
+                    "example": "admin"
+                  }
+                }
+              },
+              "examples": {
+                "POST user login": {
+                  "value": {
+                    "password": "12345",
+                    "username": "admin"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/families": {
+      "get": {
+        "summary": "Get All families",
+        "description": "Get All families",
+        "operationId": "getAllFamilies",
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/users/save": {
+      "post": {
+        "summary": "POST save a user",
+        "description": "POST save a user",
+        "operationId": "postSaveAUser",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "example": "mairy@email.com"
+                  },
+                  "firstname": {
+                    "type": "string",
+                    "example": "Mairy"
+                  },
+                  "isActive": {
+                    "type": "boolean",
+                    "example": true
+                  },
+                  "lastname": {
+                    "type": "string",
+                    "example": "Poppins"
+                  },
+                  "password": {
+                    "type": "string",
+                    "example": "12345"
+                  },
+                  "profileDetailsInsertDTO": {
+                    "type": "object",
+                    "properties": {
+                      "dateOfBirth": {
+                        "type": "string",
+                        "example": "1988-10-03"
+                      },
+                      "gender": {
+                        "type": "string",
+                        "example": "MALE"
+                      }
+                    }
+                  },
+                  "role": {
+                    "type": "string",
+                    "example": "SPOTTER"
+                  },
+                  "username": {
+                    "type": "string",
+                    "example": "mairy"
+                  }
+                }
+              },
+              "examples": {
+                "POST save a spotter": {
+                  "value": {
+                    "email": "mairy@email.com",
+                    "firstname": "Mairy",
+                    "isActive": true,
+                    "lastname": "Poppins",
+                    "password": "12345",
+                    "profileDetailsInsertDTO": {
+                      "dateOfBirth": "1988-10-03",
+                      "gender": "MALE"
+                    },
+                    "role": "SPOTTER",
+                    "username": "mairy"
+                  }
+                },
+                "POST save a user": {
+                  "value": {
+                    "email": "ludia@email.com",
+                    "firstname": "ludia",
+                    "isActive": true,
+                    "lastname": "ludia",
+                    "password": "12345",
+                    "profileDetailsInsertDTO": {
+                      "dateOfBirth": "1984-11-19",
+                      "gender": "FEMALE"
+                    },
+                    "role": "ADMIN",
+                    "username": "ludia"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {}
+        ]
+      }
+    },
+    "/api/users": {
+      "get": {
+        "summary": "Get All Users",
+        "description": "Get All Users",
+        "operationId": "getAllUsers",
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "jwtBearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/bwlogs/save": {
+      "post": {
+        "summary": "POST new log",
+        "description": "POST new log",
+        "operationId": "postNewLog",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "birdName": {
+                    "type": "string",
+                    "example": "Pallas's Sandgrouse"
+                  },
+                  "quantity": {
+                    "type": "number",
+                    "example": 1
+                  },
+                  "regionName": {
+                    "type": "string",
+                    "example": "Central Greece"
+                  }
+                }
+              },
+              "examples": {
+                "POST new log": {
+                  "value": {
+                    "birdName": "Pallas's Sandgrouse",
+                    "quantity": 1,
+                    "regionName": "Central Greece"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {}
+        ]
+      }
+    },
+    "/api/birds/search": {
+      "get": {
+        "summary": "get birds by search",
+        "description": "get birds by search",
+        "operationId": "getBirdsBySearch",
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "ta"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "7"
+            }
+          },
+          {
+            "name": "",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "jwtBearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/users/11": {
+      "get": {
+        "summary": "user by id",
+        "description": "user by id",
+        "operationId": "userById",
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "jwtBearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/users/paginated": {
+      "get": {
+        "summary": "get users paginated",
+        "description": "get users paginated",
+        "operationId": "getUsersPaginated",
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "jwtBearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/users/filtered": {
+      "post": {
+        "summary": "get users filtered",
+        "description": "get users filtered",
+        "operationId": "getUsersFiltered",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "firstname": {
+                    "nullable": true,
+                    "example": null
+                  },
+                  "lastname": {
+                    "nullable": true,
+                    "example": null
+                  },
+                  "role": {
+                    "type": "string",
+                    "example": "SPOTTER"
+                  },
+                  "username": {
+                    "nullable": true,
+                    "example": null
+                  }
+                }
+              },
+              "examples": {
+                "get users filtered": {
+                  "value": {
+                    "firstname": null,
+                    "lastname": null,
+                    "role": "SPOTTER",
+                    "username": null
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "jwtBearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/users/filtered/paginated": {
+      "post": {
+        "summary": "get users filtered and paginated",
+        "description": "get users filtered and paginated",
+        "operationId": "getUsersFilteredAndPaginated",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "nullable": true,
+                    "example": null
+                  },
+                  "gender": {
+                    "nullable": true,
+                    "example": null
+                  },
+                  "id": {
+                    "nullable": true,
+                    "example": null
+                  },
+                  "isActive": {
+                    "nullable": true,
+                    "example": null
+                  },
+                  "page": {
+                    "type": "number",
+                    "example": 0
+                  },
+                  "pageSize": {
+                    "type": "number",
+                    "example": 10
+                  },
+                  "role": {
+                    "nullable": true,
+                    "example": null
+                  },
+                  "sortBy": {
+                    "type": "string",
+                    "example": "username"
+                  },
+                  "sortDirection": {
+                    "type": "string",
+                    "example": "ASC"
+                  },
+                  "username": {
+                    "nullable": true,
+                    "example": null
+                  }
+                }
+              },
+              "examples": {
+                "get users filtered and paginated": {
+                  "value": {
+                    "email": null,
+                    "gender": null,
+                    "id": null,
+                    "isActive": null,
+                    "page": 0,
+                    "pageSize": 10,
+                    "role": null,
+                    "sortBy": "username",
+                    "sortDirection": "ASC",
+                    "username": null
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/birds": {
+      "get": {
+        "summary": "Get first 50 birds",
+        "description": "Get first 50 birds",
+        "operationId": "getFirst50Birds",
+        "parameters": [
+          {
+            "name": "size",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "50"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "3"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/birds/350": {
+      "get": {
+        "summary": "get bird by id",
+        "description": "get bird by id",
+        "operationId": "getBirdById",
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/regions": {
+      "get": {
+        "summary": "All Regions",
+        "description": "All Regions",
+        "operationId": "allRegions",
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/regions/filter": {
+      "get": {
+        "summary": "filter regions by name",
+        "description": "filter regions by name",
+        "operationId": "filterRegionsByName",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "Att"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/regions/1": {
+      "get": {
+        "summary": "get regions by id",
+        "description": "get regions by id",
+        "operationId": "getRegionsById",
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/families/20": {
+      "get": {
+        "summary": "get family by id",
+        "description": "get family by id",
+        "operationId": "getFamilyById",
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/families/paginated": {
+      "get": {
+        "summary": "get families paginated",
+        "description": "get families paginated",
+        "operationId": "getFamiliesPaginated",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "0"
+            }
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "5"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/bwlogs/my-logs": {
+      "get": {
+        "summary": "get my logs",
+        "description": "get my logs",
+        "operationId": "getMyLogs",
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/bwlogs/5": {
+      "get": {
+        "summary": "get log by id",
+        "description": "get log by id",
+        "operationId": "getLogById",
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      },
+      "put": {
+        "summary": "Update a log",
+        "description": "Update a log",
+        "operationId": "updateALog",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "birdName": {
+                    "type": "string",
+                    "example": "Pin-tailed Sandgrouse"
+                  },
+                  "quantity": {
+                    "type": "number",
+                    "example": 1
+                  },
+                  "regionName": {
+                    "type": "string",
+                    "example": "Central Macedonia"
+                  }
+                }
+              },
+              "examples": {
+                "Update a log": {
+                  "value": {
+                    "birdName": "Pin-tailed Sandgrouse",
+                    "quantity": 1,
+                    "regionName": "Central Macedonia"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/bwlogs/my-logs/filtered": {
+      "post": {
+        "summary": "filter my logs by bird & region",
+        "description": "filter my logs by bird & region",
+        "operationId": "filterMyLogsByBirdRegion",
+        "parameters": [
+          {
+            "name": "accept-charset",
+            "in": "header",
+            "schema": {
+              "type": "string",
+              "example": "application/json"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "birdName": {
+                    "type": "string",
+                    "example": "Swan"
+                  }
+                }
+              },
+              "examples": {
+                "filter my logs by bird & region": {
+                  "value": {
+                    "birdName": "Sandgrouse",
+                    "regionName": ""
+                  }
+                },
+                "filter my logs by bird name": {
+                  "value": {
+                    "birdName": "Swan"
+                  }
+                },
+                "filter my logs by family": {
+                  "value": {
+                    "familyName": "Muscicapidae"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/my-info": {
+      "get": {
+        "summary": "get my info",
+        "description": "get my info",
+        "operationId": "getMyInfo",
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/update-user": {
+      "put": {
+        "summary": "update my info",
+        "description": "update my info",
+        "operationId": "updateMyInfo",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "dateOfBirth": {
+                    "type": "string",
+                    "example": "1988-10-04"
+                  },
+                  "email": {
+                    "type": "string",
+                    "example": "eva@gmail.com"
+                  },
+                  "firstname": {
+                    "type": "string",
+                    "example": "Eva"
+                  },
+                  "gender": {
+                    "type": "string",
+                    "example": "FEMALE"
+                  },
+                  "lastname": {
+                    "type": "string",
+                    "example": "Peristeri"
+                  }
+                }
+              },
+              "examples": {
+                "update my info": {
+                  "value": {
+                    "dateOfBirth": "1988-10-04",
+                    "email": "eva@gmail.com",
+                    "firstname": "Eva",
+                    "gender": "FEMALE",
+                    "lastname": "Peristeri"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/stats/families": {
+      "get": {
+        "summary": "get stats for families",
+        "description": "get stats for families",
+        "operationId": "getStatsForFamilies",
+        "parameters": [
+          {
+            "name": "topCount",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "3"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/stats/birds": {
+      "get": {
+        "summary": "get stats for birds",
+        "description": "get stats for birds",
+        "operationId": "getStatsForBirds",
+        "parameters": [
+          {
+            "name": "",
+            "in": "header",
+            "schema": {
+              "type": "string",
+              "example": ""
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/stats/regions": {
+      "get": {
+        "summary": "get stats for regions",
+        "description": "get stats for regions",
+        "operationId": "getStatsForRegions",
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/stats/species-distribution": {
+      "get": {
+        "summary": "how many species in a family",
+        "description": "how many species in a family",
+        "operationId": "howManySpeciesInAFamily",
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/stats/user-logs": {
+      "get": {
+        "summary": "get stats for user logs",
+        "description": "get stats for user logs",
+        "operationId": "getStatsForUserLogs",
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/users/27": {
+      "put": {
+        "summary": "update any user (admin)",
+        "description": "update any user (admin)",
+        "operationId": "updateAnyUserAdmin",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "dateOfBirth": {
+                    "type": "string",
+                    "example": "1920-01-01"
+                  },
+                  "email": {
+                    "type": "string",
+                    "example": "maria@email.com"
+                  },
+                  "firstname": {
+                    "type": "string",
+                    "example": "Maria"
+                  },
+                  "gender": {
+                    "type": "string",
+                    "example": "FEMALE"
+                  },
+                  "isActive": {
+                    "type": "boolean",
+                    "example": true
+                  },
+                  "lastname": {
+                    "type": "string",
+                    "example": "VonTrap"
+                  }
+                }
+              },
+              "examples": {
+                "update any user (admin)": {
+                  "value": {
+                    "dateOfBirth": "1920-01-01",
+                    "email": "maria@email.com",
+                    "firstname": "Maria",
+                    "gender": "FEMALE",
+                    "isActive": true,
+                    "lastname": "VonTrap"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "jwtBearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "jwt"
+      }
+    }
+  },
+  "tags": []
+}
