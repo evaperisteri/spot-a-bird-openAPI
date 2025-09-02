@@ -286,7 +286,33 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/UserUpdate"
+                 "type": "object",
+                "properties": {
+                  "dateOfBirth": {
+                    "type": "string",
+                    "example": "1920-01-01"
+                  },
+                  "email": {
+                    "type": "string",
+                    "example": "maria@email.com"
+                  },
+                  "firstname": {
+                    "type": "string",
+                    "example": "Maria"
+                  },
+                  "gender": {
+                    "type": "string",
+                    "example": "FEMALE"
+                  },
+                  "isActive": {
+                    "type": "boolean",
+                    "example": true
+                  },
+                  "lastname": {
+                    "type": "string",
+                    "example": "VonTrap"
+                  }
+                }
               }
             }
           }
