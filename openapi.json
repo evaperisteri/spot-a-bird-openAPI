@@ -423,7 +423,10 @@
           "200": {
             "description": ""
           }
-        }
+        },
+        "security": [
+          { "jwtBearerAuth": [] }
+        ]
       }
     },
     "/api/birds": {
