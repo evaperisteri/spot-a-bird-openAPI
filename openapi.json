@@ -456,7 +456,10 @@
           "200": {
             "description": ""
           }
-        }
+        },
+        "security": [
+          { "jwtBearerAuth": [] }
+        ]
       }
     },
     "/api/birds/350": {
@@ -468,7 +471,10 @@
           "200": {
             "description": ""
           }
-        }
+        },
+        "security": [
+          { "jwtBearerAuth": [] }
+        ]
       }
     },
     "/api/regions": {
@@ -480,7 +486,10 @@
           "200": {
             "description": ""
           }
-        }
+        },
+        "security": [
+          { "jwtBearerAuth": [] }
+        ]
       }
     },
     "/api/regions/filter": {
@@ -502,7 +511,10 @@
           "200": {
             "description": ""
           }
-        }
+        },
+        "security": [
+          { "jwtBearerAuth": [] }
+        ]
       }
     },
     "/api/regions/1": {
@@ -514,7 +526,10 @@
           "200": {
             "description": ""
           }
-        }
+        },
+        "security": [
+          { "jwtBearerAuth": [] }
+        ]
       }
     },
     "/api/families/20": {
@@ -526,7 +541,10 @@
           "200": {
             "description": ""
           }
-        }
+        },
+        "security": [
+          { "jwtBearerAuth": [] }
+        ]
       }
     },
     "/api/families/paginated": {
@@ -556,7 +574,10 @@
           "200": {
             "description": ""
           }
-        }
+        },
+        "security": [
+          { "jwtBearerAuth": [] }
+        ]
       }
     },
     "/api/bwlogs/my-logs": {
@@ -568,7 +589,10 @@
           "200": {
             "description": ""
           }
-        }
+        },
+        "security": [
+          { "jwtBearerAuth": [] }
+        ]
       }
     },
     "/api/bwlogs/5": {
@@ -622,7 +646,10 @@
           "200": {
             "description": ""
           }
-        }
+        },
+        "security": [
+          { "jwtBearerAuth": [] }
+        ]
       }
     },
     "/api/bwlogs/my-logs/filtered": {
@@ -677,7 +704,10 @@
           "200": {
             "description": ""
           }
-        }
+        },
+        "security": [
+          { "jwtBearerAuth": [] }
+        ]
       }
     },
     "/api/my-info": {
@@ -689,7 +719,10 @@
           "200": {
             "description": ""
           }
-        }
+        },
+        "security": [
+          { "jwtBearerAuth": [] }
+        ]
       }
     },
     "/api/update-user": {
@@ -743,7 +776,10 @@
           "200": {
             "description": ""
           }
-        }
+        },
+        "security": [
+          { "jwtBearerAuth": [] }
+        ]
       }
     },
     "/api/stats/families": {
@@ -773,20 +809,8 @@
         "summary": "get stats for birds",
         "description": "get stats for birds",
         "operationId": "getStatsForBirds",
-        "parameters": [
-          {
-            "name": "",
-            "in": "header",
-            "schema": {
-              "type": "string",
-              "example": ""
-            }
-          }
-        ],
         "responses": {
-          "200": {
-            "description": ""
-          }
+          "200": { "description": "" }
         }
       }
     },
@@ -882,7 +906,10 @@
           "200": {
             "description": ""
           }
-        }
+        },
+        "security": [
+          { "jwtBearerAuth": [] }
+        ]
       }
     }
   },
