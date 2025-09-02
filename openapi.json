@@ -1050,68 +1050,6 @@
           { "jwtBearerAuth": [] }
         ]
       }
-    },
-    "/api/users/1": {
-      "put": {
-        "summary": "update any user (admin)",
-        "description": "update any user (admin)",
-        "operationId": "updateAnyUserAdmin",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "dateOfBirth": {
-                    "type": "string",
-                    "example": "1920-01-01"
-                  },
-                  "email": {
-                    "type": "string",
-                    "example": "maria@email.com"
-                  },
-                  "firstname": {
-                    "type": "string",
-                    "example": "Maria"
-                  },
-                  "gender": {
-                    "type": "string",
-                    "example": "FEMALE"
-                  },
-                  "isActive": {
-                    "type": "boolean",
-                    "example": true
-                  },
-                  "lastname": {
-                    "type": "string",
-                    "example": "VonTrap"
-                  }
-                }
-              },
-              "examples": {
-                "update any user (admin)": {
-                  "value": {
-                    "dateOfBirth": "1920-01-01",
-                    "email": "maria@email.com",
-                    "firstname": "Maria",
-                    "gender": "FEMALE",
-                    "isActive": true,
-                    "lastname": "VonTrap"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": ""
-          }
-        },
-        "security": [
-          { "jwtBearerAuth": [] }
-        ]
-      }
     }
   },
   "components": {
