@@ -603,7 +603,10 @@
         ],
         "responses": {
           "200": { "description": "" }
-        }
+        },
+        "security": [
+          { "jwtBearerAuth": [] }
+        ]
       },
       "put": {
         "summary": "Update a log",
