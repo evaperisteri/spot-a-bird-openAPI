@@ -201,7 +201,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/User"
+                    "type": "object",
+                    "description": "User object"
                   }
                 }
               }
@@ -240,14 +241,7 @@
         ],
         "responses": {
           "200": {
-            "description": "User found successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/User"
-                }
-              }
-            }
+            "description": "User found successfully"            
           },
           "401": {
             "description": "Unauthorized - valid JWT token required"
@@ -319,14 +313,8 @@
         },
         "responses": {
           "200": {
-            "description": "User updated successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/User"
-                }
-              }
-            }
+            "description": "User updated successfully"
+            
           },
           "400": {
             "description": "Invalid input data"
@@ -624,14 +612,8 @@
         ],
         "responses": {
           "200": {
-            "description": "Bird found successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Bird"
-                }
-              }
-            }
+            "description": "Bird found successfully"
+            
           },
           "404": {
             "description": "Bird not found"
@@ -706,14 +688,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Region found successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Region"
-                }
-              }
-            }
+            "description": "Region found successfully"
           },
           "401": {
             "description": "Unauthorized - valid JWT token required"
@@ -748,14 +723,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Family found successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Family"
-                }
-              }
-            }
+            "description": "Family found successfully"            
           },
           "401": {
             "description": "Unauthorized - valid JWT token required"
