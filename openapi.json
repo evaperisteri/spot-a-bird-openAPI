@@ -48,17 +48,25 @@
       }
     },
     "/api/families": {
-      "get": {
-        "summary": "Get All families",
-        "description": "Get All families",
-        "operationId": "getAllFamilies",
-        "responses": {
-          "200": {
-            "description": ""
-          }
-        }
+  "get": {
+    "summary": "Get All families",
+    "description": "Get All families",
+    "operationId": "getAllFamilies",
+    "security": [
+      {
+        "bearerAuth": []
       }
-    },
+    ],
+    "responses": {
+      "200": {
+        "description": "List of families"
+      },
+      "401": {
+        "description": "User needs to authenticate"
+      }
+    }
+  }
+},
     "/api/users/save": {
       "post": {
         "summary": "POST save a user",
