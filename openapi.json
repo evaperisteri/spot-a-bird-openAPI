@@ -238,13 +238,6 @@
               "type": "string",
               "example": "7"
             }
-          },
-          {
-            "name": "",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
           }
         ],
         "responses": {
